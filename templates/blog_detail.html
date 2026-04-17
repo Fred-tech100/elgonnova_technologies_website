@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}{{ post.title }} | ElgonNova Technologies{% endblock %}
+
+{% block content %}
+<section style="padding: 120px 0 60px 0; background: var(--dark);">
+  <div class="container">
+    <div class="blog-detail" style="max-width: 800px; margin: 0 auto;">
+      <div style="margin-bottom: 30px;">
+        <a href="/#blog" style="color: var(--orange); text-decoration: none;">← Back to Blog</a>
+      </div>
+      
+      <div style="display: flex; gap: 12px; margin-bottom: 20px;">
+        <span style="background: rgba(255,107,0,0.1); color: var(--orange); padding: 4px 12px; border-radius: 4px; font-size: 12px;">{{ post.category }}</span>
+        <span style="color: var(--gray); font-size: 12px;">{{ post.created_at|date:"F d, Y" }}</span>
+      </div>
+      
+      <h1 style="font-size: 42px; margin-bottom: 20px;">{{ post.title }}</h1>
+      
+      <div style="display: flex; align-items: center; gap: 15px; padding-bottom: 30px; margin-bottom: 30px; border-bottom: 1px solid rgba(255,255,255,0.1);">
+        <div style="width: 50px; height: 50px; background: linear-gradient(135deg, var(--orange), var(--blue)); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700;">{{ post.author.username|make_list|first|upper }}</div>
+        <div>
+          <div style="font-weight: 600;">{{ post.author.get_full_name|default:post.author.username }}</div>
+          <div style="color: var(--gray); font-size: 12px;">Published on {{ post.created_at|date:"F d, Y" }}</div>
+        </div>
+      </div>
+      
+      {% if post.featured_image %}
+      <img src="{{ post.featured_image.url }}" alt="{{ post.title }}" style="width: 100%; border-radius: 12px; margin-bottom: 30px;">
+      {% endif %}
+      
+      <div style="line-height: 1.8; color: rgba(255,255,255,0.9);">
+        {{ post.content|linebreaks }}
+      </div>
+      
+      <div style="margin-top: 50px; padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.1);">
+        <div style="display: flex; gap: 15px;">
+          <span style="color: var(--gray);">Share:</span>
+          <a href="#" style="color: var(--orange);"><i class="fab fa-facebook"></i></a>
+          <a href="#" style="color: var(--orange);"><i class="fab fa-twitter"></i></a>
+          <a href="#" style="color: var(--orange);"><i class="fab fa-linkedin"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

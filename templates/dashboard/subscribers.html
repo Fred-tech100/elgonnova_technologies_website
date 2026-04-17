@@ -1,0 +1,49 @@
+{% extends 'dashboard/base_dashboard.html' %}
+
+{% block dashboard_content %}
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <h1 class="h2">Newsletter Subscribers</h1>
+    <h5>Total: {{ subscribers.count }}</h5>
+</div>
+
+<div class="table-responsive">
+    <table class="table table-dark table-striped">
+        <thead>
+            <tr>
+                <th>Email</th>
+                <th>Subscribed Date</th>
+                <th>Status</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for sub in subscribers %}
+            <tr>
+                <td>{{ sub.email }}</td>
+                <td>{{ sub.subscribed_at|date:"Y-m-d H:i" }}</td>
+                <td>
+                    {% if sub.is_active %}
+                        <span class="badge bg-success">Active</span>
+                    {% else %}
+                        <span class="badge bg-danger">Removed</span>
+                    {% endif %}
+                </td>
+                <td>
+                    {% if sub.is_active %}
+                        <form method="POST" style="display: inline;">
+                            {% csrf_token %}
+                            <input type="hidden" name="subscriber_id" value="{{ sub.id }}">
+                            <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Remove this subscriber?')">Remove</button>
+                        </form>
+                    {% endif %}
+                </td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="4" class="text-center">No subscribers yet.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

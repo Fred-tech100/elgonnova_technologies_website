@@ -1,0 +1,40 @@
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual environments
+venv/
+env/
+ENV/
+
+# Git
+.git/
+.gitignore
+
+# Environment files (VERY IMPORTANT)
+.env
+
+# Django
+db.sqlite3
+media/
+staticfiles/
+
+# Migrations cache
+**/migrations/__pycache__/
+
+# IDEs
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Docker
+Dockerfile
+docker-compose.yml

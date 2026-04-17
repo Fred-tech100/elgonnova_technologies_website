@@ -1,0 +1,195 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+<meta name="description" content="ElgonNova Technologies – Innovating Africa Through Technology. Premium ICT solutions, software development, IoT, and digital transformation.">
+<title>{% block title %}ElgonNova Technologies | Innovating Africa Through Technology{% endblock %}</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;900&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="icon" href="{% static 'images/elgonnova_logo.png' %}" type="image/x-icon">
+<link rel="stylesheet" href="{% static 'css/styles.css' %}">
+{% comment %} <style>
+
+</style> {% endcomment %}
+{% block extra_css %}{% endblock %}
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav id="navbar">
+  <div class="logo">
+    <div class="logo-mark"><img src="{% static 'images/elgonnova_logo.png' %}" alt="ElgonNova Logo"></div>
+    <div class="logo-text" >Elgon<span>Nova</span></div>
+  </div>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="/#hero" class='active'>Home</a></li>
+    <li><a href="/#about">About</a></li>
+    <li><a href="/#services">Services</a></li>
+    <li><a href="/#portfolio">Portfolio</a></li>
+    <li><a href="/#blog">Insights</a></li>
+    <li><a href="/#contact">Contact</a></li>
+    <li><a href="/#contact" class="nav-cta" style="background: var(--blue);">Get a Quote</a></li>
+  </ul>
+  <div class="hamburger" id="hamburger">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+{% block content %}{% endblock %}
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="logo">
+        <div class="logo-mark"><img src="{% static 'images/elgonnova_logo.png' %}" alt="ElgonNova Logo"></div>
+        <div class="logo-text">Elgon<span>Nova</span></div>
+      </div>
+      <p>Premium ICT solutions from the heart of Africa. We build technology that empowers businesses, communities, and the continent's digital future.</p>
+      <div class="socials" style="margin-top:20px">
+        {% if site_settings.facebook %}<a href="{{ site_settings.facebook }}" class="social-btn"><i class="fab fa-facebook-f"></i></a>{% endif %}
+        {% if site_settings.twitter %}<a href="{{ site_settings.twitter }}" class="social-btn"><i class="fab fa-twitter"></i></a>{% endif %}
+        {% if site_settings.linkedin %}<a href="{{ site_settings.linkedin }}" class="social-btn"><i class="fab fa-linkedin-in"></i></a>{% endif %}
+        {% if site_settings.instagram %}<a href="{{ site_settings.instagram }}" class="social-btn"><i class="fab fa-instagram"></i></a>{% endif %}
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <ul class="footer-links">
+        {% for service in services|slice:":5" %}
+        <li><a href="/#services">{{ service.name }}</a></li>
+        {% endfor %}
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <ul class="footer-links">
+        <li><a href="/#about">About Us</a></li>
+        <li><a href="/#portfolio">Portfolio</a></li>
+        <li><a href="/#blog">Blog</a></li>
+        <li><a href="/#contact">Contact</a></li>
+        <li><a href="/#contact">Careers</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <ul class="footer-links">
+        <li><a href="#">{{ site_settings.address|default:"Mbale City, Uganda" }}</a></li>
+        <li><a href="mailto:{{ site_settings.email|default:'elgonnovatechnologies@gmail.com' }}">{{ site_settings.email|default:"hello@elgonnova.tech" }}</a></li>
+        <li><a href="tel:{{ site_settings.phone|default:'+256-753825829' }}">{{ site_settings.phone|default:"+256 700 000 000" }}</a></li>
+        <li><a href="#">Mon–Fri, 8am–6pm EAT</a></li>
+      </ul>
+      <br>
+      {% if user.is_authenticated %}
+      <a href="/dashboard/" style="color: var(--blue);"><i ></i> Dashboard</a>
+      <a href="/dashboard/logout/" style="color: var(--orange);">Logout</a>
+      {% else %}
+      <a href="/dashboard/login/" class="fa-solid fa-gear"></a>
+      {% endif %}
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; {% now "Y" %} ElgonNova Technologies. All rights reserved.</p>
+    <p style="color:var(--gray)">Developed by ElgonNova Technologies</p>
+  </div>
+</footer>
+
+<!-- LIVE CHAT -->
+<div class="chat-bubble" title="Chat with us" onclick="alert('Live chat coming soon! Call us at {{ site_settings.phone|default:'+256 700 000 000' }}')">
+  <i class="fas fa-comment-dots"></i>
+</div>
+
+<script>
+// HAMBURGER MENU - FIXED VERSION
+const hamburger = document.getElementById('hamburger');
+const navLinks = document.getElementById('navLinks');
+
+function toggleNav() {
+  navLinks.classList.toggle('open');
+  hamburger.classList.toggle('active');
+  // Prevent body scroll when menu is open
+  if (navLinks.classList.contains('open')) {
+    document.body.style.overflow = 'hidden';
+  } else {
+    document.body.style.overflow = '';
+  }
+}
+
+// Add click event to hamburger
+if (hamburger) {
+  hamburger.addEventListener('click', toggleNav);
+}
+
+// Close nav on link click
+document.querySelectorAll('.nav-links a').forEach(a => {
+  a.addEventListener('click', () => {
+    navLinks.classList.remove('open');
+    hamburger.classList.remove('active');
+    document.body.style.overflow = '';
+  });
+});
+
+// Close menu when clicking outside on mobile
+document.addEventListener('click', (event) => {
+  const isMobile = window.innerWidth <= 900;
+  if (isMobile && navLinks && navLinks.classList.contains('open')) {
+    if (!navLinks.contains(event.target) && !hamburger.contains(event.target)) {
+      navLinks.classList.remove('open');
+      hamburger.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+  }
+});
+
+// Handle window resize - close menu if screen becomes larger
+window.addEventListener('resize', () => {
+  if (window.innerWidth > 900 && navLinks && navLinks.classList.contains('open')) {
+    navLinks.classList.remove('open');
+    hamburger.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+});
+
+// NAVBAR SCROLL
+window.addEventListener('scroll', () => {
+  const nav = document.getElementById('navbar');
+  nav.style.background = window.scrollY > 80 ? 'rgba(15,15,15,0.98)' : 'rgba(15,15,15,0.92)';
+});
+
+// SCROLL ANIMATIONS
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((e, i) => {
+    if (e.isIntersecting) {
+      setTimeout(() => e.target.classList.add('visible'), i * 80);
+      observer.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+// COUNTER ANIMATION
+const counterObserver = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      const el = e.target;
+      const target = parseInt(el.dataset.count);
+      let current = 0;
+      const step = target / 60;
+      const timer = setInterval(() => {
+        current = Math.min(current + step, target);
+        el.textContent = Math.floor(current) + (target >= 80 ? '+' : '');
+        if (current >= target) clearInterval(timer);
+      }, 25);
+      counterObserver.unobserve(el);
+    }
+  });
+}, { threshold: 0.5 });
+
+document.querySelectorAll('.stat-number[data-count]').forEach(el => counterObserver.observe(el));
+</script>
+{% block extra_js %}{% endblock %}
+</body>
+</html>

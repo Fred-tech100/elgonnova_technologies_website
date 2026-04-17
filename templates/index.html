@@ -1,0 +1,674 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<!-- HERO SLIDER -->
+<section id="hero">
+  <div class="slides-container" id="slidesContainer">
+
+    <!-- SLIDE 1 -->
+    <div class="slide active" id="slide-0">
+      <div class="slide-bg slide-1-bg" style="background-image: url('{% static "images/africa_tech.jpeg" %}');">
+        <div class="tech-grid"></div>
+        <svg class="slide-svg" viewBox="0 0 500 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="250" cy="200" r="140" stroke="#FF6B00" stroke-width="1" stroke-dasharray="8 6"/>
+          <circle cx="250" cy="200" r="100" stroke="#00AEEF" stroke-width="0.8" stroke-dasharray="4 8"/>
+          <circle cx="250" cy="200" r="60" stroke="#FF6B00" stroke-width="1.5"/>
+          <circle cx="250" cy="200" r="20" fill="#FF6B00" opacity="0.6"/>
+          <circle cx="390" cy="200" r="8" fill="#00AEEF"/>
+          <circle cx="110" cy="200" r="8" fill="#FF6B00"/>
+          <circle cx="250" cy="60" r="8" fill="#00AEEF"/>
+          <circle cx="250" cy="340" r="8" fill="#FF6B00"/>
+          <line x1="390" y1="200" x2="310" y2="200" stroke="#00AEEF" stroke-width="1" stroke-dasharray="4 3"/>
+          <line x1="110" y1="200" x2="190" y2="200" stroke="#FF6B00" stroke-width="1" stroke-dasharray="4 3"/>
+          <line x1="250" y1="60" x2="250" y2="140" stroke="#00AEEF" stroke-width="1" stroke-dasharray="4 3"/>
+          <line x1="250" y1="340" x2="250" y2="260" stroke="#FF6B00" stroke-width="1" stroke-dasharray="4 3"/>
+          <rect x="60" y="170" width="60" height="60" rx="6" stroke="#FF6B00" stroke-width="1" fill="rgba(255,107,0,0.05)"/>
+          <rect x="380" y="170" width="60" height="60" rx="6" stroke="#00AEEF" stroke-width="1" fill="rgba(0,174,239,0.05)"/>
+          <rect x="220" y="30" width="60" height="60" rx="6" stroke="#00AEEF" stroke-width="1" fill="rgba(0,174,239,0.05)"/>
+          <rect x="220" y="310" width="60" height="60" rx="6" stroke="#FF6B00" stroke-width="1" fill="rgba(255,107,0,0.05)"/>
+        </svg>
+      </div>
+      <div class="slide-overlay"></div>
+      <div class="slide-content">
+        <div class="slide-text">
+          <div class="slide-badge"><i class="fas fa-globe-africa"></i> Est. Mbale, Uganda</div>
+          <h1 class="slide-title">Innovating <span class="accent">Africa</span><br>Through <span class="accent-blue">Technology</span></h1>
+          <p class="slide-desc">ElgonNova Technologies delivers world-class ICT solutions — from software development to IoT, empowering businesses across Africa and beyond.</p>
+          <div class="hero-btns">
+            <a href="#services" class="btn-primary"><i class="fas fa-rocket"></i> Explore Services</a>
+            <a href="#contact" class="btn-outline"><i class="fas fa-paper-plane"></i> Get a Quote</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 2 -->
+    <div class="slide" id="slide-1">
+      <div class="slide-bg slide-2-bg" style="background-image: url('{% static "images/software_web.jpeg" %}');">
+        <div class="tech-circuit"></div>
+        <svg class="slide-svg" viewBox="0 0 500 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="50" y="80" width="400" height="240" rx="12" stroke="#00AEEF" stroke-width="1"/>
+          <rect x="70" y="100" width="360" height="200" rx="8" fill="rgba(0,174,239,0.04)" stroke="rgba(0,174,239,0.2)" stroke-width="0.5"/>
+          <line x1="70" y1="140" x2="430" y2="140" stroke="rgba(0,174,239,0.2)" stroke-width="0.5"/>
+          <circle cx="95" cy="120" r="6" fill="#FF6B00"/>
+          <circle cx="115" cy="120" r="6" fill="#FFAA00"/>
+          <circle cx="135" cy="120" r="6" fill="#44DD44"/>
+          <text x="95" y="175" font-family="monospace" font-size="12" fill="rgba(0,174,239,0.7)">$ elgon --init nova</text>
+          <text x="95" y="200" font-family="monospace" font-size="12" fill="rgba(255,107,0,0.8)">✓ Deploying innovation...</text>
+          <text x="95" y="225" font-family="monospace" font-size="12" fill="rgba(0,174,239,0.7)">$ connecting africa.tech</text>
+          <text x="95" y="250" font-family="monospace" font-size="12" fill="rgba(255,255,255,0.4)">█ Loading future_v2.0</text>
+        </svg>
+      </div>
+      <div class="slide-overlay"></div>
+      <div class="slide-content">
+        <div class="slide-text">
+          <div class="slide-badge"><i class="fas fa-code"></i> Software & Web Development</div>
+          <h1 class="slide-title">Building <span class="accent">Smart</span><br><span class="accent-blue">Digital</span> Solutions</h1>
+          <p class="slide-desc">We craft bespoke software, dynamic websites, and powerful web applications that drive growth and transform your business operations.</p>
+          <div class="hero-btns">
+            <a href="#services" class="btn-primary"><i class="fas fa-laptop-code"></i> Our Services</a>
+            <a href="#portfolio" class="btn-outline"><i class="fas fa-eye"></i> View Portfolio</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 3 -->
+    <div class="slide" id="slide-2">
+      <div class="slide-bg slide-3-bg" style="background-image: url('{% static "images/iot.jpeg" %}');">
+        <div class="tech-grid"></div>
+        <svg class="slide-svg" viewBox="0 0 500 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <ellipse cx="250" cy="200" rx="180" ry="100" stroke="#FF6B00" stroke-width="1" stroke-dasharray="6 4"/>
+          <ellipse cx="250" cy="200" rx="180" ry="100" stroke="#FF6B00" stroke-width="0.5" transform="rotate(60 250 200)" stroke-dasharray="6 4"/>
+          <ellipse cx="250" cy="200" rx="180" ry="100" stroke="#00AEEF" stroke-width="0.5" transform="rotate(120 250 200)" stroke-dasharray="6 4"/>
+          <circle cx="250" cy="200" r="30" fill="rgba(255,107,0,0.15)" stroke="#FF6B00" stroke-width="2"/>
+          <circle cx="250" cy="200" r="12" fill="#FF6B00"/>
+          <circle cx="430" cy="200" r="10" fill="#00AEEF"/>
+          <circle cx="70" cy="200" r="10" fill="#00AEEF"/>
+          <circle cx="320" cy="100" r="8" fill="#FF6B00" opacity="0.7"/>
+          <circle cx="180" cy="300" r="8" fill="#FF6B00" opacity="0.7"/>
+          <circle cx="180" cy="100" r="8" fill="#00AEEF" opacity="0.7"/>
+          <circle cx="320" cy="300" r="8" fill="#00AEEF" opacity="0.7"/>
+        </svg>
+      </div>
+      <div class="slide-overlay"></div>
+      <div class="slide-content">
+        <div class="slide-text">
+          <div class="slide-badge"><i class="fas fa-microchip"></i> IoT & Data Intelligence</div>
+          <h1 class="slide-title">The <span class="accent">Future</span> is<br><span class="accent-blue">Connected</span></h1>
+          <p class="slide-desc">From IoT ecosystems to machine learning pipelines, we harness data and connectivity to unlock new possibilities for African enterprises.</p>
+          <div class="hero-btns">
+            <a href="#services" class="btn-primary"><i class="fas fa-network-wired"></i> IoT Solutions</a>
+            <a href="#contact" class="btn-outline"><i class="fas fa-comments"></i> Let's Talk</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- SLIDE 4 -->
+    <div class="slide" id="slide-3">
+      <div class="slide-bg slide-4-bg" style="background-image: url('{% static "images/data_analysis.jpeg" %}');">
+        <div class="tech-grid"></div>
+        <svg class="slide-svg" viewBox="0 0 500 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <ellipse cx="250" cy="200" rx="180" ry="100" stroke="#FF6B00" stroke-width="1" stroke-dasharray="6 4"/>
+          <ellipse cx="250" cy="200" rx="180" ry="100" stroke="#FF6B00" stroke-width="0.5" transform="rotate(60 250 200)" stroke-dasharray="6 4"/>
+          <ellipse cx="250" cy="200" rx="180" ry="100" stroke="#00AEEF" stroke-width="0.5" transform="rotate(120 250 200)" stroke-dasharray="6 4"/>
+          <circle cx="250" cy="200" r="30" fill="rgba(255,107,0,0.15)" stroke="#FF6B00" stroke-width="2"/>
+          <circle cx="250" cy="200" r="12" fill="#FF6B00"/>
+          <circle cx="430" cy="200" r="10" fill="#00AEEF"/>
+          <circle cx="70" cy="200" r="10" fill="#00AEEF"/>
+          <circle cx="320" cy="100" r="8" fill="#FF6B00" opacity="0.7"/>
+          <circle cx="180" cy="300" r="8" fill="#FF6B00" opacity="0.7"/>
+          <circle cx="180" cy="100" r="8" fill="#00AEEF" opacity="0.7"/>
+          <circle cx="320" cy="300" r="8" fill="#00AEEF" opacity="0.7"/>
+        </svg>
+      </div>
+      <div class="slide-overlay"></div>
+      <div class="slide-content">
+        <div class="slide-text">
+          <div class="slide-badge"><i class="fa-solid fa-chart-line"></i> Data Analysis</div>
+          <h1 class="slide-title">Insights<span class="accent"> That Drive</span><br>Business <span class="accent-blue">Forward</span></h1>
+          <p class="slide-desc">At ElgonNova Technologies, we turn complex data into clear, actionable insights that empower businesses to make informed decisions and drive growth.</p>
+          <div class="hero-btns">
+            <a href="#services" class="btn-primary"><i class="fas fa-network-wired"></i> Data Analysis Solutions</a>
+            <a href="#contact" class="btn-outline"><i class="fas fa-comments"></i> Let's Talk</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <button class="slider-arrow arrow-prev" onclick="changeSlide(-1)"><i class="fas fa-chevron-left"></i></button>
+  <button class="slider-arrow arrow-next" onclick="changeSlide(1)"><i class="fas fa-chevron-right"></i></button>
+
+  <div class="slider-controls">
+    <button class="dot active" onclick="goToSlide(0)"></button>
+    <button class="dot" onclick="goToSlide(1)"></button>
+    <button class="dot" onclick="goToSlide(2)"></button>
+    <button class="dot" onclick="goToSlide(3)"></button>
+  </div>
+
+  <div class="slide-counter"><span id="slideNum">01</span> / 04</div>
+
+  <div class="scroll-indicator">
+    <div class="scroll-line"></div>
+    <span class="scroll-text">scroll</span>
+  </div>
+</section>
+
+<!-- STATS BAR -->
+<div class="stats-bar">
+  {% for stat in stats %}
+  <div class="stat-item">
+    <div class="stat-number" data-count="{{ stat.value }}">0</div>
+    <div class="stat-label">{{ stat.label }}</div>
+  </div>
+  {% endfor %}
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-visual fade-up">
+        <div class="about-card main">
+          <div class="tech-grid" style="border-radius:12px"></div>
+          <svg viewBox="0 0 360 280" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:80%;max-width:300px;position:relative;z-index:1">
+            <rect x="20" y="20" width="320" height="240" rx="16" fill="rgba(255,107,0,0.05)" stroke="rgba(255,107,0,0.2)" stroke-width="1"/>
+            <rect x="40" y="40" width="130" height="90" rx="8" fill="rgba(0,174,239,0.08)" stroke="rgba(0,174,239,0.25)" stroke-width="1"/>
+            <text x="105" y="95" text-anchor="middle" font-family="monospace" font-size="28" fill="#00AEEF" opacity="0.8">IoT</text>
+            <rect x="190" y="40" width="130" height="90" rx="8" fill="rgba(255,107,0,0.08)" stroke="rgba(255,107,0,0.25)" stroke-width="1"/>
+            <text x="255" y="95" text-anchor="middle" font-family="monospace" font-size="28" fill="#FF6B00" opacity="0.8">AI</text>
+            <rect x="40" y="150" width="280" height="90" rx="8" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+            <text x="180" y="205" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="22" font-weight="bold" fill="white" opacity="0.9">ElgonNova</text>
+            <line x1="105" y1="130" x2="105" y2="150" stroke="rgba(0,174,239,0.4)" stroke-width="1" stroke-dasharray="3 3"/>
+            <line x1="255" y1="130" x2="255" y2="150" stroke="rgba(255,107,0,0.4)" stroke-width="1" stroke-dasharray="3 3"/>
+          </svg>
+        </div>
+        <div class="about-card stat-card">
+          <div class="num">98%</div>
+          <div class="label">Client Satisfaction Rate</div>
+        </div>
+        <div class="about-badge"><i class="fas fa-award"></i> ISO-Aligned Standards</div>
+      </div>
+
+      <div class="fade-up">
+        <div class="section-tag">Our Story</div>
+        <h2 class="section-title">Where <span style="color:var(--orange)">Elgon</span> Meets <span style="color:var(--blue)">Nova</span></h2>
+        <p class="section-sub">Born from the spirit of Mount Elgon — Africa's ancient, enduring peak — and the brightness of a Nova star, ElgonNova Technologies represents strength, brilliance, and limitless potential. We are a premium ICT solutions company committed to bridging Africa's technology gap.</p>
+        <p class="section-sub" style="margin-top:16px">Our mission is simple: deliver globally competitive digital solutions rooted in deep African context. From Mbale to the world, we build technology that matters.</p>
+
+        <div class="values-grid" style="margin-top:28px">
+          <div class="value-item">
+            <div class="value-icon"><i class="fas fa-lightbulb"></i></div>
+            <div>
+              <div class="value-name">Innovation</div>
+              <div class="value-desc">Pushing boundaries with creative tech solutions</div>
+            </div>
+          </div>
+          <div class="value-item">
+            <div class="value-icon"><i class="fas fa-shield-alt"></i></div>
+            <div>
+              <div class="value-name">Integrity</div>
+              <div class="value-desc">Transparent, honest, and reliable in all we do</div>
+            </div>
+          </div>
+          <div class="value-item">
+            <div class="value-icon"><i class="fas fa-star"></i></div>
+            <div>
+              <div class="value-name">Excellence</div>
+              <div class="value-desc">Delivering quality that surpasses expectations</div>
+            </div>
+          </div>
+          <div class="value-item">
+            <div class="value-icon"><i class="fas fa-globe-africa"></i></div>
+            <div>
+              <div class="value-name">African Pride</div>
+              <div class="value-desc">Building Africa's digital future with confidence</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CEO MESSAGE SECTION -->
+{% if ceo_message and ceo_message.is_active %}
+<section id="ceo-message" style="background: linear-gradient(135deg, var(--dark) 0%, var(--dark2) 100%);">
+  <div class="container">
+    <div class="ceo-grid" style="display: grid; grid-template-columns: 1fr 1.5fr; gap: 60px; align-items: center;">
+      <div class="ceo-image fade-up" style="position: relative;">
+        <div style="background: linear-gradient(135deg, var(--orange), var(--blue)); border-radius: 20px; padding: 10px;">
+          <div style="background: var(--dark3); border-radius: 15px; padding: 40px; text-align: center;">
+            {% if ceo_message.image %}
+            <img src="{{ ceo_message.image.url }}" alt="{{ ceo_message.name }}" style="width: 200px; height: 200px; border-radius: 50%; object-fit: cover; margin-bottom: 20px;">
+            {% else %}
+            <div style="width: 200px; height: 200px; border-radius: 50%; background: linear-gradient(135deg, var(--orange), var(--blue)); margin: 0 auto 20px; display: flex; align-items: center; justify-content: center; font-size: 72px; font-weight: 900;">
+              {{ ceo_message.avatar_initial }}
+            </div>
+            {% endif %}
+            <h3 style="color: var(--orange);">{{ ceo_message.name }}</h3>
+            <p style="color: var(--gray);">{{ ceo_message.title }}</p>
+          </div>
+        </div>
+        <div style="position: absolute; bottom: -20px; left: -20px; width: 100px; height: 100px; background: rgba(255,107,0,0.1); border-radius: 50%; z-index: -1;"></div>
+      </div>
+      <div class="ceo-content fade-up">
+        <div class="section-tag">Message from the CEO</div>
+        <h2 class="section-title">Leading <span style="color:var(--orange)">Innovation</span> with Purpose</h2>
+        <div style="position: relative;">
+          <i class="fas fa-quote-left" style="font-size: 60px; color: var(--orange); opacity: 0.2; position: absolute; top: -20px; left: -20px;"></i>
+          <p style="font-size: 18px; line-height: 1.8; color: rgba(255,255,255,0.9); margin-bottom: 20px; position: relative; z-index: 1;">
+            {{ ceo_message.message }}
+          </p>
+        </div>
+        {% if ceo_message.quote %}
+        <div style="margin-top: 30px; padding: 20px; border-left: 3px solid var(--orange); background: rgba(255,107,0,0.05);">
+          <p style="font-style: italic; color: var(--gray);">"{{ ceo_message.quote }}"</p>
+          <p style="margin-top: 10px; color: var(--orange);">— {{ ceo_message.name }}, {{ ceo_message.title }}</p>
+        </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>
+{% endif %}
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="container">
+    <div class="fade-up" style="text-align:center;max-width:600px;margin:0 auto 56px">
+      <div class="section-tag" style="justify-content:center">What We Do</div>
+      <h2 class="section-title">Our Core <span style="color:var(--orange)">Services</span></h2>
+      <p class="section-sub" style="margin:0 auto">Comprehensive ICT solutions tailored for the modern African enterprise and beyond.</p>
+    </div>
+    <div class="services-grid">
+      {% for service in services %}
+      <div class="service-card fade-up">
+        <div class="service-icon"><i class="{{ service.icon }}"></i></div>
+        <div class="service-name">{{ service.name }}</div>
+        <p class="service-desc">{{ service.description }}</p>
+        <a href="#contact" class="service-link">Get Started <i class="fas fa-arrow-right"></i></a>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- PORTFOLIO -->
+<section id="portfolio">
+  <div class="container">
+    <div class="fade-up" style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:16px">
+      <div>
+        <div class="section-tag">Our Work</div>
+        <h2 class="section-title">Featured <span style="color:var(--orange)">Projects</span></h2>
+      </div>
+      <a href="#contact" class="btn-primary" style="align-self:flex-end"><i class="fas fa-briefcase"></i> All Projects</a>
+    </div>
+
+    <div class="filter-tabs fade-up" id="filterTabs">
+      <button class="filter-btn active" data-cat="all">All</button>
+      <button class="filter-btn" data-cat="web">Web Dev</button>
+      <button class="filter-btn" data-cat="software">Software</button>
+      <button class="filter-btn" data-cat="iot">IoT</button>
+      <button class="filter-btn" data-cat="data">Data & AI</button>
+    </div>
+
+    <div class="portfolio-grid" id="portfolioGrid">
+      {% for item in portfolio_items %}
+      <div class="portfolio-item fade-up" data-cat="{{ item.category }}">
+        <div class="portfolio-thumb" style="background:linear-gradient(135deg,#1a0a00,#2a1500)">{{ item.icon }}</div>
+        <div class="portfolio-overlay">
+          <div class="portfolio-cat">{{ item.get_category_display }}</div>
+          <div class="portfolio-name">{{ item.title }}</div>
+          <div class="portfolio-tech">{{ item.technologies }}</div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- TEAM MEMBERS SECTION -->
+{% if team_members %}
+<section id="team" style="background: var(--dark2);">
+  <div class="container">
+    <div class="fade-up" style="text-align:center;max-width:600px;margin:0 auto 56px">
+      <div class="section-tag" style="justify-content:center">Our Team</div>
+      <h2 class="section-title">Meet Our <span style="color:var(--orange)">Experts</span></h2>
+      <p class="section-sub" style="margin:0 auto">Passionate professionals dedicated to delivering excellence in every project.</p>
+    </div>
+    <div class="team-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px;">
+      {% for member in team_members %}
+      <div class="team-card fade-up" style="background: var(--dark3); border-radius: 16px; overflow: hidden; border: 1px solid rgba(255,107,0,0.1); transition: transform 0.3s;">
+        <div style="padding: 30px 30px 20px 30px; text-align: center;">
+          {% if member.image %}
+          <img src="{{ member.image.url }}" alt="{{ member.name }}" style="width: 150px; height: 150px; border-radius: 50%; object-fit: cover; margin-bottom: 20px; border: 3px solid var(--orange);">
+          {% else %}
+          <div style="width: 150px; height: 150px; border-radius: 50%; background: linear-gradient(135deg, var(--orange), var(--blue)); margin: 0 auto 20px; display: flex; align-items: center; justify-content: center; font-size: 48px; font-weight: 900;">
+            {{ member.avatar_initial }}
+          </div>
+          {% endif %}
+          <h3 style="color: var(--orange); margin-bottom: 5px;">{{ member.name }}</h3>
+          <p style="color: var(--blue); font-size: 14px; margin-bottom: 15px;">{{ member.position }}</p>
+          <p style="color: var(--gray); font-size: 13px; line-height: 1.6;">{{ member.bio|truncatewords:25 }}</p>
+          {% if member.quote %}
+          <div style="margin-top: 15px; padding: 10px; background: rgba(255,107,0,0.05); border-radius: 8px;">
+            <p style="font-style: italic; font-size: 12px; color: var(--gray);">"{{ member.quote|truncatewords:15 }}"</p>
+          </div>
+          {% endif %}
+          <div style="margin-top: 20px; display: flex; gap: 12px; justify-content: center;">
+            {% if member.social_linkedin %}<a href="{{ member.social_linkedin }}" target="_blank" class="social-btn"><i class="fab fa-linkedin-in"></i></a>{% endif %}
+            {% if member.social_twitter %}<a href="{{ member.social_twitter }}" target="_blank" class="social-btn"><i class="fab fa-twitter"></i></a>{% endif %}
+            {% if member.social_github %}<a href="{{ member.social_github }}" target="_blank" class="social-btn"><i class="fab fa-github"></i></a>{% endif %}
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
+
+<!-- BLOG -->
+<section id="blog">
+  <div class="container">
+    <div class="fade-up" style="text-align:center;max-width:600px;margin:0 auto">
+      <div class="section-tag" style="justify-content:center">Knowledge Hub</div>
+      <h2 class="section-title">Tech <span style="color:var(--orange)">Insights</span> & News</h2>
+      <p class="section-sub" style="margin:0 auto">Stay ahead with our expert articles on technology, AI, and digital transformation in Africa.</p>
+    </div>
+    <div class="blog-grid">
+      {% for post in blog_posts %}
+      <div class="blog-card fade-up">
+        <div class="blog-thumb" style="background:linear-gradient(135deg,#1a0a00,#0a0a1a)">{{ post.icon }}</div>
+        <div class="blog-body">
+          <div class="blog-meta">
+            <span class="blog-tag">{{ post.category }}</span>
+            <span class="blog-date">{{ post.created_at|date:"F Y" }}</span>
+          </div>
+          <div class="blog-title">{{ post.title }}</div>
+          <p class="blog-excerpt">{{ post.excerpt|truncatewords:20 }}</p>
+          <a href="{% url 'core:blog_detail' post.slug %}" class="blog-read">Read Article <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- CAREERS SECTION -->
+{% if careers %}
+<section id="careers" style="background: var(--dark2);">
+  <div class="container">
+    <div class="fade-up" style="text-align:center;max-width:600px;margin:0 auto 56px">
+      <div class="section-tag" style="justify-content:center">Join Our Team</div>
+      <h2 class="section-title">Career <span style="color:var(--orange)">Opportunities</span></h2>
+      <p class="section-sub" style="margin:0 auto">Be part of a team that's shaping Africa's digital future.</p>
+    </div>
+    <div class="careers-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 24px;">
+      {% for career in careers %}
+      <div class="career-card fade-up" style="background: var(--dark3); border-radius: 12px; padding: 24px; border: 1px solid rgba(255,107,0,0.1); transition: transform 0.3s;">
+        <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 15px;">
+          <h3 style="color: var(--orange); font-size: 18px;">{{ career.title }}</h3>
+          <span style="background: rgba(0,174,239,0.1); color: var(--blue); padding: 4px 8px; border-radius: 4px; font-size: 11px; font-weight: 600;">{{ career.job_type }}</span>
+        </div>
+        <div style="display: flex; gap: 15px; margin-bottom: 15px; flex-wrap: wrap;">
+          <span style="color: var(--gray); font-size: 12px;"><i class="fas fa-map-marker-alt"></i> {{ career.location }}</span>
+          <span style="color: var(--gray); font-size: 12px;"><i class="fas fa-chart-line"></i> {{ career.experience_level }}</span>
+          {% if career.salary_range %}
+          <span style="color: var(--gray); font-size: 12px;"><i class="fas fa-dollar-sign"></i> {{ career.salary_range }}</span>
+          {% endif %}
+        </div>
+        <p style="color: var(--gray); font-size: 13px; line-height: 1.6; margin-bottom: 20px;">{{ career.description|truncatewords:25 }}</p>
+        <div style="display: flex; gap: 10px;">
+          <a href="{% url 'core:career_detail' career.slug %}" class="btn-primary" style="padding: 8px 20px; font-size: 12px;">View Details</a>
+          <a href="{% url 'core:apply_job' career.slug %}" class="btn-outline" style="padding: 8px 20px; font-size: 12px;">Apply Now</a>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    <div style="text-align: center; margin-top: 40px;">
+      <a href="{% url 'core:careers' %}" class="btn-primary">View All Opportunities <i class="fas fa-arrow-right"></i></a>
+    </div>
+  </div>
+</section>
+{% endif %}
+
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+  <div class="container">
+    <div class="fade-up" style="text-align:center;max-width:600px;margin:0 auto 56px">
+      <div class="section-tag" style="justify-content:center">Client Voices</div>
+      <h2 class="section-title">What Our <span style="color:var(--orange)">Clients</span> Say</h2>
+    </div>
+    <div class="testi-grid">
+      {% for testimonial in testimonials %}
+      <div class="testi-card fade-up">
+        <div class="stars">{% for i in "12345"|make_list %}{% if forloop.counter <= testimonial.rating %}★{% else %}☆{% endif %}{% endfor %}</div>
+        <div class="testi-quote">"</div>
+        <p class="testi-text">{{ testimonial.content }}</p>
+        <div class="testi-author">
+          <div class="testi-avatar">{{ testimonial.avatar_initial }}</div>
+          <div>
+            <div class="testi-name">{{ testimonial.name }}</div>
+            <div class="testi-role">{{ testimonial.role }}, {{ testimonial.company }}</div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% if careers %}
+<!-- CAREERS SECTION - DYNAMIC -->
+<section id="careers" class="fade-up">
+  <div class="container">
+    <div class="section-tag">
+      <i class="fas fa-briefcase"></i> Join Our Team
+    </div>
+    <h2 class="section-title">Career <span style="color: var(--orange);">Opportunities</span></h2>
+    <p class="section-sub">Be part of Africa's digital transformation. We're looking for passionate innovators to join our growing team.</p>
+    
+    <div class="careers-grid">
+      {% for career in careers %}
+      <div class="career-card">
+        <div class="career-tag {% if career.is_urgent %}urgent{% else %}featured{% endif %}">
+          {% if career.is_urgent %}
+            <i class="fas fa-exclamation-circle"></i> Urgent Hiring
+          {% else %}
+            <i class="fas fa-star"></i> Open Position
+          {% endif %}
+        </div>
+        <h3 class="career-title">{{ career.title }}</h3>
+        <div class="career-meta">
+          <span class="career-meta-item">
+            <i class="fas fa-map-marker-alt"></i> {{ career.location|default:"Mbale City, Uganda" }}
+          </span>
+          <span class="career-meta-item">
+            <i class="fas fa-briefcase"></i> {{ career.get_job_type_display|default:"Full Time" }}
+          </span>
+          {% if career.experience_level %}
+          <span class="career-meta-item">
+            <i class="fas fa-chart-line"></i> {{ career.get_experience_level_display }}
+          </span>
+          {% endif %}
+        </div>
+        <p class="career-description">{{ career.short_description|default:career.description|truncatewords:25 }}</p>
+        <div class="career-skills">
+          {% for skill in career.skills_list|slice:":4" %}
+          <span class="skill-tag">{{ skill }}</span>
+          {% endfor %}
+          {% if career.skills_list|length > 4 %}
+          <span class="skill-tag more">+{{ career.skills_list|length|add:"-4" }}</span>
+          {% endif %}
+        </div>
+        <div class="career-footer">
+          <span class="deadline">
+            {% if career.deadline %}
+            <i class="fas fa-calendar-alt"></i> Deadline: {{ career.deadline|date:"M d, Y" }}
+            {% else %}
+            <i class="fas fa-infinity"></i> Rolling Basis
+            {% endif %}
+          </span>
+          <a href="{% url 'core:career_detail' career.slug %}" class="career-link">
+            View Details <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    
+    {% if careers|length >= 3 %}
+    <div class="careers-view-all">
+      <a href="{% url 'careers_list' %}" class="btn-outline">
+        View All Open Positions <i class="fas fa-arrow-right"></i>
+      </a>
+    </div>
+    {% endif %}
+  </div>
+</section>
+{% endif %}
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <div class="contact-grid">
+      <div class="fade-up">
+        <div class="section-tag">Get In Touch</div>
+        <h2 class="section-title">Let's Build <span style="color:var(--orange)">Together</span></h2>
+        <p style="color:var(--gray);font-size:14px;line-height:1.75;margin:16px 0 32px">Have a project in mind? Ready to transform your business with technology? Reach out and let's start a conversation.</p>
+
+        <div class="contact-detail">
+          <div class="contact-detail-icon"><i class="fas fa-map-marker-alt"></i></div>
+          <div class="contact-detail-text">
+            <strong>Location</strong>
+            <span>{{ site_settings.address|default:"Mbale City, Uganda, East Africa" }}</span>
+          </div>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-detail-icon"><i class="fas fa-envelope"></i></div>
+          <div class="contact-detail-text">
+            <strong>Email</strong>
+            <span>{{ site_settings.email|default:"hello@elgonnova.tech" }}</span>
+          </div>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-detail-icon"><i class="fas fa-phone-alt"></i></div>
+          <div class="contact-detail-text">
+            <strong>Phone</strong>
+            <span>{{ site_settings.phone|default:"+256 700 000 000" }}</span>
+          </div>
+        </div>
+
+        <div class="socials">
+          {% if site_settings.facebook %}<a href="{{ site_settings.facebook }}" class="social-btn"><i class="fab fa-facebook-f"></i></a>{% endif %}
+          {% if site_settings.twitter %}<a href="{{ site_settings.twitter }}" class="social-btn"><i class="fab fa-twitter"></i></a>{% endif %}
+          {% if site_settings.linkedin %}<a href="{{ site_settings.linkedin }}" class="social-btn"><i class="fab fa-linkedin-in"></i></a>{% endif %}
+          {% if site_settings.instagram %}<a href="{{ site_settings.instagram }}" class="social-btn"><i class="fab fa-instagram"></i></a>{% endif %}
+          {% if site_settings.github %}<a href="{{ site_settings.github }}" class="social-btn"><i class="fab fa-github"></i></a>{% endif %}
+        </div>
+      </div>
+
+      <div class="fade-up">
+        <div style="background:var(--dark2);border:1px solid rgba(255,255,255,0.07);border-radius:16px;padding:40px">
+          <h3 style="font-family:Montserrat,sans-serif;font-size:20px;font-weight:700;margin-bottom:24px">Request a Quote</h3>
+          <form method="POST" class="contact-form">
+            {% csrf_token %}
+            <div class="form-row">
+              <div class="form-group">
+                <label>Full Name</label>
+                {{ contact_form.name }}
+              </div>
+              <div class="form-group">
+                <label>Email Address</label>
+                {{ contact_form.email }}
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Service Needed</label>
+              {{ contact_form.service }}
+            </div>
+            <div class="form-group">
+              <label>Project Budget</label>
+              {{ contact_form.budget }}
+            </div>
+            <div class="form-group">
+              <label>Message</label>
+              {{ contact_form.message }}
+            </div>
+            <button type="submit" name="contact_form" class="submit-btn"><i class="fas fa-paper-plane"></i> Send Message</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+<div class="newsletter-bar" style="background-image: url('{% static "images/beach.jpeg" %}');">
+  <h3>Subscribe to Our Newsletter</h3>
+  <p>Get the latest tech insights, product updates, and African innovation stories delivered to your inbox.</p>
+  <form method="POST" class="newsletter-form">
+    {% csrf_token %}
+    {{ newsletter_form.email }}
+    <button type="submit" name="newsletter_form">Subscribe <i class="fas fa-arrow-right"></i></button>
+  </form>
+</div>
+
+<script>
+// SLIDER
+let current = 0;
+const total = 4;
+let autoTimer;
+
+function goToSlide(n) {
+  const slides = document.querySelectorAll('.slide');
+  const dots = document.querySelectorAll('.dot');
+  slides[current].classList.remove('active');
+  dots[current].classList.remove('active');
+  current = (n + total) % total;
+  slides[current].classList.add('active');
+  dots[current].classList.add('active');
+  document.getElementById('slidesContainer').style.transform = `translateX(-${current * 100}%)`;
+  document.getElementById('slideNum').textContent = String(current + 1).padStart(2, '0');
+  resetTimer();
+}
+
+function changeSlide(dir) { goToSlide(current + dir); }
+
+function resetTimer() {
+  clearInterval(autoTimer);
+  autoTimer = setInterval(() => changeSlide(1), 6000);
+}
+
+resetTimer();
+
+// PORTFOLIO FILTER
+document.getElementById('filterTabs').addEventListener('click', e => {
+  if (!e.target.classList.contains('filter-btn')) return;
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  e.target.classList.add('active');
+  const cat = e.target.dataset.cat;
+  document.querySelectorAll('.portfolio-item').forEach(item => {
+    const show = cat === 'all' || item.dataset.cat === cat;
+    item.style.opacity = show ? '1' : '0.2';
+    item.style.transform = show ? '' : 'scale(0.95)';
+    item.style.transition = 'opacity 0.3s, transform 0.3s';
+    item.style.pointerEvents = show ? 'auto' : 'none';
+  });
+});
+
+// Touch/swipe support for slider
+let touchStartX = 0;
+document.getElementById('hero').addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; });
+document.getElementById('hero').addEventListener('touchend', e => {
+  const dx = e.changedTouches[0].clientX - touchStartX;
+  if (Math.abs(dx) > 50) changeSlide(dx < 0 ? 1 : -1);
+});
+</script>
+{% endblock %}

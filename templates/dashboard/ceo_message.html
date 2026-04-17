@@ -1,0 +1,73 @@
+{% extends 'dashboard/base_dashboard.html' %}
+
+{% block dashboard_content %}
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <h1 class="h2">CEO Message</h1>
+</div>
+
+<div class="row">
+    <div class="col-md-8 mx-auto">
+        <div class="card bg-dark text-white">
+            <div class="card-body">
+                <form method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="mb-3 text-center">
+                        {% if ceo_message.image %}
+                        <img src="{{ ceo_message.image.url }}" alt="CEO" style="width: 150px; height: 150px; border-radius: 50%; object-fit: cover; margin-bottom: 15px;">
+                        {% else %}
+                        <div style="width: 150px; height: 150px; border-radius: 50%; background: linear-gradient(135deg, #FF6B00, #00AEEF); margin: 0 auto 15px; display: flex; align-items: center; justify-content: center; font-size: 48px;">
+                            {{ ceo_message.avatar_initial|default:"CEO" }}
+                        </div>
+                        {% endif %}
+                        <div class="mb-3">
+                            <label class="form-label">Profile Image</label>
+                            <input type="file" name="image" class="form-control bg-dark text-white" accept="image/*">
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label class="form-label">Name</label>
+                                <input type="text" name="name" value="{{ ceo_message.name }}" class="form-control bg-dark text-white" required>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label class="form-label">Title</label>
+                                <input type="text" name="title" value="{{ ceo_message.title }}" class="form-control bg-dark text-white" required>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label class="form-label">Avatar Initials (2 letters)</label>
+                        <input type="text" name="avatar_initial" maxlength="2" value="{{ ceo_message.avatar_initial }}" class="form-control bg-dark text-white">
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label class="form-label">Message</label>
+                        <textarea name="message" rows="8" class="form-control bg-dark text-white" required>{{ ceo_message.message }}</textarea>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label class="form-label">Inspirational Quote (Optional)</label>
+                        <textarea name="quote" rows="2" class="form-control bg-dark text-white" placeholder="Your inspiring quote here...">{{ ceo_message.quote }}</textarea>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <div class="form-check">
+                            <input type="checkbox" name="is_active" class="form-check-input" {% if ceo_message.is_active %}checked{% endif %}>
+                            <label class="form-check-label">Display CEO Message on Website</label>
+                        </div>
+                    </div>
+                    
+                    <div class="text-end">
+                        <button type="submit" class="btn btn-primary">Save CEO Message</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

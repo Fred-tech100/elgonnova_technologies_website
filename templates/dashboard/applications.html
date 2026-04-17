@@ -1,0 +1,99 @@
+{% extends 'dashboard/base_dashboard.html' %}
+
+{% block dashboard_content %}
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <h1 class="h2">Job Applications</h1>
+    <h5>Total: {{ applications.count }}</h5>
+</div>
+
+<div class="table-responsive">
+    <table class="table table-dark table-striped">
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Position</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Resume</th>
+                <th>Status</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for app in applications %}
+            <tr {% if not app.is_read %}style="font-weight: bold;"{% endif %}>
+                <td>{{ app.applied_at|date:"Y-m-d H:i" }}</td>
+                <td>{{ app.career.title }}</td>
+                <td>{{ app.full_name }}</td>
+                <td>{{ app.email }}</td>
+                <td>{{ app.phone }}</td>
+                <td>
+                    {% if app.resume %}
+                    <a href="{{ app.resume.url }}" target="_blank" class="btn btn-sm btn-info">View Resume</a>
+                    {% endif %}
+                </td>
+                <td>
+                    <form method="POST" style="display: inline;">
+                        {% csrf_token %}
+                        <input type="hidden" name="application_id" value="{{ app.id }}">
+                        <select name="status" class="form-select form-select-sm" style="width: auto; display: inline-block;" onchange="this.form.submit()">
+                            <option value="pending" {% if app.status == 'pending' %}selected{% endif %}>Pending</option>
+                            <option value="reviewed" {% if app.status == 'reviewed' %}selected{% endif %}>Reviewed</option>
+                            <option value="shortlisted" {% if app.status == 'shortlisted' %}selected{% endif %}>Shortlisted</option>
+                            <option value="interviewed" {% if app.status == 'interviewed' %}selected{% endif %}>Interviewed</option>
+                            <option value="accepted" {% if app.status == 'accepted' %}selected{% endif %}>Accepted</option>
+                            <option value="rejected" {% if app.status == 'rejected' %}selected{% endif %}>Rejected</option>
+                        </select>
+                    </form>
+                </td>
+                <td>
+                    <button class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#viewApplicationModal{{ app.id }}">
+                        <i class="fas fa-eye"></i> View
+                    </button>
+                </td>
+            </tr>
+            
+            <!-- View Application Modal -->
+            <div class="modal fade" id="viewApplicationModal{{ app.id }}" tabindex="-1">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content bg-dark text-white">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Application for {{ app.career.title }}</h5>
+                            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                        </div>
+                        <div class="modal-body">
+                            <h6>Personal Information</h6>
+                            <p><strong>Name:</strong> {{ app.full_name }}</p>
+                            <p><strong>Email:</strong> {{ app.email }}</p>
+                            <p><strong>Phone:</strong> {{ app.phone }}</p>
+                            {% if app.portfolio_url %}
+                            <p><strong>Portfolio:</strong> <a href="{{ app.portfolio_url }}" target="_blank">{{ app.portfolio_url }}</a></p>
+                            {% endif %}
+                            {% if app.linkedin_url %}
+                            <p><strong>LinkedIn:</strong> <a href="{{ app.linkedin_url }}" target="_blank">{{ app.linkedin_url }}</a></p>
+                            {% endif %}
+                            <hr>
+                            <h6>Cover Letter</h6>
+                            <p>{{ app.cover_letter|linebreaks }}</p>
+                            <hr>
+                            <h6>Resume/CV</h6>
+                            {% if app.resume %}
+                            <a href="{{ app.resume.url }}" target="_blank" class="btn btn-info">Download Resume</a>
+                            {% endif %}
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% empty %}
+            <tr>
+                <td colspan="8" class="text-center">No applications yet.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

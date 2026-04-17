@@ -1,0 +1,96 @@
+{% extends 'dashboard/base_dashboard.html' %}
+
+{% block dashboard_content %}
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <h1 class="h2">Testimonials</h1>
+    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addTestimonialModal">
+        <i class="fas fa-plus"></i> Add Testimonial
+    </button>
+</div>
+
+<div class="row">
+    {% for testimonial in testimonials %}
+    <div class="col-md-4 mb-3">
+        <div class="card bg-dark text-white">
+            <div class="card-body">
+                <div class="stars text-warning mb-2">
+                    {% for i in "12345"|make_list %}{% if forloop.counter <= testimonial.rating %}★{% else %}☆{% endif %}{% endfor %}
+                </div>
+                <p class="card-text">"{{ testimonial.content|truncatewords:20 }}"</p>
+                <div class="d-flex align-items-center mt-3">
+                    <div class="rounded-circle bg-primary d-flex align-items-center justify-content-center me-2" style="width: 40px; height: 40px;">
+                        {{ testimonial.avatar_initial }}
+                    </div>
+                    <div>
+                        <strong>{{ testimonial.name }}</strong><br>
+                        <small class="text-muted">{{ testimonial.role }}, {{ testimonial.company }}</small>
+                    </div>
+                </div>
+                <form method="POST" class="mt-3">
+                    {% csrf_token %}
+                    <input type="hidden" name="delete_testimonial" value="1">
+                    <input type="hidden" name="testimonial_id" value="{{ testimonial.id }}">
+                    <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Delete this testimonial?')">Delete</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+<!-- Add Modal -->
+<div class="modal fade" id="addTestimonialModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content bg-dark text-white">
+            <div class="modal-header">
+                <h5 class="modal-title">Add Testimonial</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+            </div>
+            <form method="POST">
+                {% csrf_token %}
+                <div class="modal-body">
+                    <input type="hidden" name="add_testimonial" value="1">
+                    <div class="mb-3">
+                        <label class="form-label">Name</label>
+                        <input type="text" name="name" class="form-control bg-dark text-white" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Role</label>
+                        <input type="text" name="role" class="form-control bg-dark text-white" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Company</label>
+                        <input type="text" name="company" class="form-control bg-dark text-white" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Content</label>
+                        <textarea name="content" rows="4" class="form-control bg-dark text-white" required></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Avatar Initials (2 letters)</label>
+                        <input type="text" name="avatar_initial" maxlength="2" class="form-control bg-dark text-white" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Rating (1-5)</label>
+                        <input type="number" name="rating" min="1" max="5" class="form-control bg-dark text-white" value="5">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Order</label>
+                        <input type="number" name="order" class="form-control bg-dark text-white" value="0">
+                    </div>
+                    <div class="mb-3">
+                        <div class="form-check">
+                            <input type="checkbox" name="is_active" class="form-check-input" checked>
+                            <label class="form-check-label">Active</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
