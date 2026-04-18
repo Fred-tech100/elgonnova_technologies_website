@@ -67,12 +67,11 @@ WSGI_APPLICATION = 'elgonnova.wsgi.application'
 
 
 if os.environ.get('DATABASE_URL'):
-    # Running on Render (or with DATABASE_URL set)
     DATABASES = {
-        'default': dj_database_url.config(conn_max_age=600)
+        'default': dj_database_url.config(conn_max_age=600, ssl_require=False)
     }
 else:
-    # Running locally with Docker Compose
+    # Local development with Docker Compose
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql',
@@ -83,6 +82,7 @@ else:
             'PORT': os.environ.get('POSTGRES_PORT', '5432'),
         }
     }
+    
 AUTH_PASSWORD_VALIDATORS = [
     {'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator'},
     {'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator'},
