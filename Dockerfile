@@ -24,6 +24,8 @@ echo "Waiting for database..."\n\
 sleep 3\n\
 echo "Running migrations..."\n\
 python manage.py migrate --noinput\n\
+echo "Creating superuser..."\n\
+python create_superuser.py\n\
 echo "Starting Gunicorn..."\n\
 gunicorn elgonnova.wsgi:application --bind 0.0.0.0:8000' > /start.sh
 
