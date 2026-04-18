@@ -7,9 +7,9 @@ class SiteSetting(models.Model):
     site_name = models.CharField(max_length=100, default='ElgonNova Technologies')
     site_logo = models.ImageField(upload_to='settings/', blank=True, null=True)
     site_favicon = models.ImageField(upload_to='settings/', blank=True, null=True)
-    email = models.EmailField(default='hello@elgonnova.tech')
-    phone = models.CharField(max_length=20, default='+256 700 000 000')
-    address = models.TextField(default='Mbale City, Uganda, East Africa')
+    email = models.EmailField(default='elgonnnovatechnologies@gmail.com')
+    phone = models.CharField(max_length=20, default='+256 753 0825 829')
+    address = models.TextField(default='Mbale City, Uganda')
     facebook = models.URLField(blank=True)
     twitter = models.URLField(blank=True)
     linkedin = models.URLField(blank=True)
@@ -121,13 +121,14 @@ class ContactMessage(models.Model):
         ('Computer Repair & Maintenance', 'Computer Repair & Maintenance'),
         ('ICT Consultancy', 'ICT Consultancy'),
         ('Data Analysis & ML', 'Data Analysis & ML'),
+        ('Graphics Designing', 'Graphics Designing'),
     ]
     
     BUDGET_CHOICES = [
-        ('Under $500', 'Under $500'),
-        ('$500 – $2,000', '$500 – $2,000'),
-        ('$2,000 – $10,000', '$2,000 – $10,000'),
-        ('$10,000+', '$10,000+'),
+        ('Under UGX 1.8M', 'Under UGX 1.8M'),
+        ('UGX 1.8M – UGX 2M', 'UGX 1.8M – UGX 2M'),
+        ('UGX 2M – UGX 10M', 'UGX 2M – UGX 10M'),
+        ('UGX 10M+', 'UGX 10M+'),
     ]
     
     name = models.CharField(max_length=100)
