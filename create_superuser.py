@@ -18,8 +18,8 @@ except Exception as e:
 from django.contrib.auth import get_user_model
 User = get_user_model()
 
-username = 'fred'
-password = 'deus@0956'
+username = 'mangara'
+password = 'Deus@0956'
 
 print(f"Checking if user '{username}' exists...")
 
