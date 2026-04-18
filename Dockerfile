@@ -15,8 +15,8 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . /app/
 
-# Run migrations and start server
-RUN python manage.py migrate --noinput || true
-RUN python manage.py collectstatic --noinput || true
+# Run migrations and collect static files
+RUN python manage.py migrate --noinput
+RUN python manage.py collectstatic --noinput
 
-CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
+CMD ["gunicorn", "--bind", "0.0.0.0:8000", "elgonweb.wsgi:application"]
