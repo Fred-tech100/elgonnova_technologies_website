@@ -15,8 +15,18 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . /app/
 
-# Run migrations and collect static files
-RUN python manage.py migrate --noinput
+# Collect static files (doesn't need database)
 RUN python manage.py collectstatic --noinput
 
-CMD ["gunicorn", "--bind", "0.0.0.0:8000", "elgonweb.wsgi:application"]
+# Create startup script that runs migrations THEN starts the server
+RUN echo '#!/bin/bash\n\
+echo "Waiting for database..."\n\
+sleep 3\n\
+echo "Running migrations..."\n\
+python manage.py migrate --noinput\n\
+echo "Starting Gunicorn..."\n\
+gunicorn elgonnova.wsgi:application --bind 0.0.0.0:8000' > /start.sh
+
+RUN chmod +x /start.sh
+
+CMD ["/start.sh"]
