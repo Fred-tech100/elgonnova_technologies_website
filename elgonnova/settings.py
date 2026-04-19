@@ -1,6 +1,11 @@
 import os
 import dj_database_url
 from pathlib import Path
+from .settings import *
+
+# import cloudinary
+# import cloudinary.uploader
+# import cloudinary.api
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -81,7 +86,10 @@ else:
             'HOST': os.environ.get('POSTGRES_HOST', 'db'),
             'PORT': os.environ.get('POSTGRES_PORT', '5432'),
         }
-    }
+}
+
+    
+    
     
 AUTH_PASSWORD_VALIDATORS = [
     {'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator'},
@@ -99,8 +107,15 @@ STATIC_URL = 'static/'
 STATICFILES_DIRS = [BASE_DIR / 'static']
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-MEDIA_URL = '/media/'
-MEDIA_ROOT = BASE_DIR / 'media'
+# MEDIA_URL = '/media/'
+# MEDIA_ROOT = BASE_DIR / 'media'
+
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': os.environ.get('CLOUDINARY_CLOUD_NAME'),
+    'API_KEY': os.environ.get('CLOUDINARY_API_KEY'),
+    'API_SECRET': os.environ.get('CLOUDINARY_API_SECRET'),
+}
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 

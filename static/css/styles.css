@@ -1081,9 +1081,12 @@ footer {
     .nav-cta { padding: 7px 16px; }
 }
 
-/* Mobile Devices (up to 900px) - Show hamburger menu */
+/* Mobile Devices (up to 900px) - HAMBURGER MENU FIXED */
 @media (max-width: 900px) {
-    .hamburger { display: flex; }
+    .hamburger { 
+        display: flex; 
+        z-index: 10001;
+    }
     
     .nav-links {
         position: fixed;
@@ -1099,19 +1102,31 @@ footer {
         padding: 40px 20px;
         gap: 24px;
         transition: left 0.3s ease-in-out;
-        z-index: 999;
+        z-index: 9999;
         overflow-y: auto;
     }
     
-    .nav-links.open { left: 0; }
-    .nav-links li { width: 100%; text-align: center; }
+    .nav-links.open { 
+        left: 0;
+    }
+    
+    .nav-links li { 
+        width: 100%; 
+        text-align: center; 
+    }
+    
     .nav-links a {
         display: block;
         padding: 12px;
         font-size: 14px;
         white-space: normal;
     }
-    .nav-cta { display: inline-block; width: auto; margin-top: 10px; }
+    
+    .nav-cta { 
+        display: inline-block; 
+        width: auto; 
+        margin-top: 10px; 
+    }
 }
 
 /* Small Mobile Devices (up to 768px) */
@@ -1341,7 +1356,7 @@ footer {
 }
 
 /* ============================================ */
-/* MINIMAL HORIZONTAL SCROLL FIX - NO SLIDER BREAKAGE */
+/* MINIMAL HORIZONTAL SCROLL FIX */
 /* ============================================ */
 
 /* Only prevent scroll on body and html */
@@ -1432,7 +1447,6 @@ img {
         word-break: break-word;
     }
 }
-
 
 /* ============================================ */
 /* CEO MESSAGE SECTION - COMPLETE FIX */
