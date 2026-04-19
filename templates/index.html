@@ -240,18 +240,20 @@
 <section id="ceo-message" style="background: linear-gradient(135deg, var(--dark) 0%, var(--dark2) 100%);">
   <div class="container">
     <div class="ceo-grid" style="display: grid; grid-template-columns: 1fr 1.5fr; gap: 60px; align-items: center;">
-      <div class="ceo-image fade-up" style="position: relative;">
-        <div style="background: linear-gradient(135deg, var(--orange), var(--blue)); border-radius: 20px; padding: 10px;">
-          <div style="background: var(--dark3); border-radius: 15px; padding: 40px; text-align: center;">
-            {% if ceo_message.image %}
-            <img src="{{ ceo_message.image.url }}" alt="{{ ceo_message.name }}" style="width: 200px; height: 200px; border-radius: 50%; object-fit: cover; margin-bottom: 20px;">
-            {% else %}
-            <div style="width: 200px; height: 200px; border-radius: 50%; background: linear-gradient(135deg, var(--orange), var(--blue)); margin: 0 auto 20px; display: flex; align-items: center; justify-content: center; font-size: 72px; font-weight: 900;">
-              {{ ceo_message.avatar_initial }}
+      <div class="ceo-image fade-up" style="position: relative; text-align: center; display: flex; justify-content: center;">
+        <div style="display: inline-block; margin: 0 auto;">
+          <div style="background: linear-gradient(135deg, var(--orange), var(--blue)); border-radius: 20px; padding: 10px; display: inline-block;">
+            <div style="background: var(--dark3); border-radius: 15px; padding: 40px; text-align: center;">
+              {% if ceo_message.image %}
+              <img src="{{ ceo_message.image.url }}" alt="{{ ceo_message.name }}" style="width: 200px; height: 200px; border-radius: 50%; object-fit: cover; margin-bottom: 20px; display: block; margin-left: auto; margin-right: auto;">
+              {% else %}
+              <div style="width: 200px; height: 200px; border-radius: 50%; background: linear-gradient(135deg, var(--orange), var(--blue)); margin: 0 auto 20px; display: flex; align-items: center; justify-content: center; font-size: 72px; font-weight: 900;">
+                {{ ceo_message.avatar_initial }}
+              </div>
+              {% endif %}
+              <h3 style="color: var(--orange);">{{ ceo_message.name }}</h3>
+              <p style="color: var(--gray);">{{ ceo_message.title }}</p>
             </div>
-            {% endif %}
-            <h3 style="color: var(--orange);">{{ ceo_message.name }}</h3>
-            <p style="color: var(--gray);">{{ ceo_message.title }}</p>
           </div>
         </div>
         <div style="position: absolute; bottom: -20px; left: -20px; width: 100px; height: 100px; background: rgba(255,107,0,0.1); border-radius: 50%; z-index: -1;"></div>

@@ -1573,3 +1573,17 @@ img {
     justify-content: center !important;
     align-items: center !important;
 }
+
+/* CEO image centering fix for all screen sizes */
+@media (min-width: 769px) {
+  #ceo-message .ceo-image {
+    justify-self: center !important;
+    align-self: center !important;
+  }
+}
+
+#ceo-message .ceo-image img {
+  display: block !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
