@@ -23,13 +23,13 @@ def home(request):
             if contact_form.is_valid():
                 contact_form.save()
                 messages.success(request, 'Thank you! Your message has been sent.')
-                return redirect('home')
+                return redirect('core:home')
         elif 'newsletter_form' in request.POST:
             newsletter_form = NewsletterForm(request.POST)
             if newsletter_form.is_valid():
                 newsletter_form.save()
                 messages.success(request, 'Subscribed! Welcome to the ElgonNova community.')
-                return redirect('home')
+                return redirect('core:home')
     
     contact_form = ContactForm()
     newsletter_form = NewsletterForm()
@@ -99,7 +99,7 @@ def apply_job(request, slug):
         )
         
         messages.success(request, 'Application submitted successfully! We will contact you soon.')
-        return redirect('careers')
+        return redirect('core:careers')
     
     return render(request, 'apply_job.html', {'career': career})
 
