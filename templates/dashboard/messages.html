@@ -26,7 +26,7 @@
                 <td>{{ msg.email }}</td>
                 <td>{{ msg.service }}</td>
                 <td>{{ msg.budget }}</td>
-                <td>{{ msg.message|truncatewords:15 }}</td>
+                <td>{{ msg.message|truncatewords:150 }}</td>
                 <td>
                     {% if not msg.is_read %}
                         <form method="POST" style="display: inline;">
